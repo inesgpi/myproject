@@ -51,3 +51,10 @@ body {
 .forecast-day-holder {
   margin-bottom: 16px;
 }
+.footer {
+  max-width: 800px;
+  margin-top: 20px;
+}
+.footer a {
+  text-decoration: none;
+}
