@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+    />
+
+    <link rel="stylesheet" href="src/styles.css" />
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container main-container">
+      <div class="row control-row">
+        <div class="col-sm-10">
+          <form id="search-form">
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Search for a city"
+                aria-label="City, Country"
+                aria-describedby="button-addon2"
+                id="search-city-input"
+              />
+              <button
+                class="btn btn-outline-secondary"
+                type="submit"
+                id="button-addon2"
+              >
+                <i class="fas fa-search-location"></i>
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                id="btn-geo-location"
+              >
+                <i class="fas fa-location-arrow"></i>
+              </button>
+              <button type="button" class="btn btn-outline-secondary">
+                <i class="fas fa-heart"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="col-sm-2 text-end">
+          <div
+            class="btn-group"
+            role="group"
+            aria-label="Basic radio toggle button group"
+          >
+            <input
+              type="radio"
+              class="btn-check"
+              name="btnradioCF"
+              id="btnRadioC"
+              autocomplete="off"
+              checked
+            />
+            <label class="btn btn-outline-secondary" for="btnRadioC">ºC</label>
+
+            <input
+              type="radio"
+              class="btn-check"
+              name="btnradioCF"
+              id="btnRadioF"
+              autocomplete="off"
+            />
+            <label class="btn btn-outline-secondary" for="btnRadioF">ºF</label>
+          </div>
+        </div>
+      </div>
+      <div class="row main-row">
+        <div class="col-6 text-center">
+          <p id="selector-date">Thursday, April 22, 12:00</p>
+          <p id="city-name">Updating...</p>
+          <h2>Mostly Cloudy</h2>
+          <h1 class="current-temp">
+            <span id="current-temp-val">18</span>
+            <span id="current-temp-deg" class="current-temp-deg">ºC</span>
+          </h1>
+          <div class="row">
+            <div class="col-6 max-temp-col">Max 23ºC</div>
+            <div class="col-6 text-start">Min 10ºC</div>
+          </div>
+        </div>
+        <div class="col-6 text-center">
+          <i class="bi bi-cloud-sun current-icon"></i>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <div class="row text-center current-stats">
+                <div class="col">Feels like: 15ºC</div>
+                <div class="col">Humidity: 90%</div>
+                <div class="col">Precipitation: 20%</div>
+                <div class="col">Wind: 5 km/h</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card forecast-card">
+        <div class="card-header">5 Day Forecast</div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-12 col-sm forecast-day-holder">
+              <p class="forecast-day">FRI</p>
+              <div class="forecast-icon">
+                <i class="bi bi-sun"></i>
+              </div>
+              <div class="row">
+                <div class="col max-temp-col">18º</div>
+                <div class="col">10º</div>
+              </div>
+            </div>
+            <div class="col-12 col-sm forecast-day-holder">
+              <p class="forecast-day">SAT</p>
+              <div class="forecast-icon">
+                <i class="bi bi-cloud-rain"></i>
+              </div>
+              <div class="row">
+                <div class="col max-temp-col">17º</div>
+                <div class="col">9º</div>
+              </div>
+            </div>
+            <div class="col-12 col-sm forecast-day-holder">
+              <p class="forecast-day">SUN</p>
+              <div class="forecast-icon">
+                <i class="bi bi-cloud-lightning-rain"></i>
+              </div>
+              <div class="row">
+                <div class="col max-temp-col">17º</div>
+                <div class="col">7º</div>
+              </div>
+            </div>
+            <div class="col-12 col-sm forecast-day-holder">
+              <p class="forecast-day">MON</p>
+              <div class="forecast-icon">
+                <i class="bi bi-cloud"></i>
+              </div>
+              <div class="row">
+                <div class="col max-temp-col">20º</div>
+                <div class="col">11º</div>
+              </div>
+            </div>
+            <div class="col-12 col-sm forecast-day-holder">
+              <p class="forecast-day">TUE</p>
+              <div class="forecast-icon">
+                <i class="bi bi-cloud-lightning"></i>
+              </div>
+              <div class="row">
+                <div class="col max-temp-col">21º</div>
+                <div class="col">11º</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://kit.fontawesome.com/f0781ee918.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="src/index.js"></script>
+  </body>
+</html>

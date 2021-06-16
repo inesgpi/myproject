@@ -1,0 +1,53 @@
+body {
+  padding: 20px 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.main-container {
+  max-width: 800px;
+  background: #f5f5f5;
+  padding: 20px;
+  border: 1px solid #facc2e;
+  border-radius: 4px;
+}
+
+.main-row {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.current-icon {
+  font-size: 200px;
+}
+.current-temp {
+  font-size: 100px;
+  margin-bottom: 24px;
+}
+.current-temp-deg {
+  font-size: 50px;
+  line-height: 80px;
+  vertical-align: top;
+}
+.max-temp-col {
+  border-right: 1px solid black;
+  text-align: right;
+}
+.current-stats {
+  color: #6c757d;
+}
+.forecast-day {
+  text-align: center;
+  margin-bottom: 0;
+}
+.forecast-card {
+  margin-top: 20px;
+}
+.forecast-card > .card-header {
+  background: rgba(250, 204, 46, 0.8);
+}
+.forecast-icon {
+  text-align: center;
+  font-size: 40px;
+}
+.forecast-day-holder {
+  margin-bottom: 16px;
+}
